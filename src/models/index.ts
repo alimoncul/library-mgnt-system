@@ -8,25 +8,20 @@ const User = UserModel(sequelize);
 const Book = BookModel(sequelize);
 const BorrowedBook = BorrowedBookModel(sequelize);
 
-// Setup associations
 User.belongsToMany(Book, {
-    through: {
-        model: BorrowedBook,
-        unique: false
-    },
-    foreignKey: 'userId',  // Explicitly define which column to use
+    through: BorrowedBook,
+    as: 'BorrowedBooks',
+    foreignKey: 'userId',
     otherKey: 'bookId'
-
 });
+
 Book.belongsToMany(User, {
-    through: {
-        model: BorrowedBook,
-        unique: false
-    },
-    foreignKey: 'bookId',  // Explicitly define which column to use
+    through: BorrowedBook,
+    as: 'Borrowers',
+    foreignKey: 'bookId',
     otherKey: 'userId'
-
 });
+
 
 // Export models and sequelize connection
 export { User, Book, BorrowedBook, sequelize };

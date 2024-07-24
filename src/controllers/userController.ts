@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { User } from '../models';
+import { User, Book } from '../models';
 
 const getAllUsers = async (req: Request, res: Response): Promise<void> => {
     try {
@@ -12,7 +12,19 @@ const getAllUsers = async (req: Request, res: Response): Promise<void> => {
 
 const getUserById = async (req: Request, res: Response): Promise<void> => {
     try {
-        const user = await User.findByPk(req.params.id);
+        const user = await User.findByPk(req.params.id, {
+            attributes: ['id', 'name'], // User attributes you want to fetch
+            include: [{
+                model: Book,
+                as: 'BorrowedBooks',
+                attributes: ['id', 'name'], // Attributes of the book you want to include
+                through: {
+                    attributes: ['borrowedAt', 'returnedAt', 'rating'], // Join table attributes
+                    where: {} // Optional: conditions on the join table
+                },
+                required: false // This ensures even users without borrowed books are returned
+            }]
+        });
         if (user) {
             res.json(user);
         } else {
