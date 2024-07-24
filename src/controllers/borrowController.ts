@@ -34,7 +34,7 @@ const borrowBook = async (req: Request, res: Response): Promise<void> => {
 const returnBook = async (req: Request, res: Response): Promise<void> => {
     const userId = parseInt(req.params.id);
     const bookId = parseInt(req.params.bookId);
-    const rating = req.body.rating;
+    const rating = req.body.score;
 
     try {
         const borrowRecord = await BorrowedBook.findOne({

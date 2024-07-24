@@ -10,9 +10,9 @@ const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.json());
-app.use('/api', userRoutes);
-app.use('/api', bookRoutes);
-app.use('/api', borrowRoutes);
+app.use('/', userRoutes);
+app.use('/', bookRoutes);
+app.use('/', borrowRoutes);
 
 const initializeDatabase = async () => {
     try {
