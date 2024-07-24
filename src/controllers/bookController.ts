@@ -1,6 +1,6 @@
 // src/controllers/bookController.ts
 import { Request, Response } from 'express';
-import Book from '../models/Book';
+import { Book } from '../models';
 
 const getAllBooks = async (req: Request, res: Response): Promise<void> => {
     try {

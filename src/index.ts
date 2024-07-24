@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import userRoutes from './routes/userRoutes';
 import bookRoutes from './routes/bookRoutes';
 import borrowRoutes from './routes/borrowRoutes';
-import sequelize from './config/database';
+import { sequelize } from './models';
 
 const app = express();
 const PORT = 3000;

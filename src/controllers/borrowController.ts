@@ -1,7 +1,5 @@
 import { Request, Response } from 'express';
-import User from '../models/User';
-import Book from '../models/Book';
-import BorrowedBook from '../models/BorrowedBook';
+import { User, Book, BorrowedBook } from '../models';
 import { Op } from 'sequelize';
 
 const borrowBook = async (req: Request, res: Response): Promise<void> => {
