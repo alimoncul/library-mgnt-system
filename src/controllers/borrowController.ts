@@ -3,7 +3,7 @@ import { User, Book, BorrowedBook } from '../models';
 import { Op } from 'sequelize';
 
 const borrowBook = async (req: Request, res: Response): Promise<void> => {
-    const userId = parseInt(req.params.id);
+    const userId = parseInt(req.params.userId);
     const bookId = parseInt(req.params.bookId);
 
     try {
@@ -32,9 +32,9 @@ const borrowBook = async (req: Request, res: Response): Promise<void> => {
 };
 
 const returnBook = async (req: Request, res: Response): Promise<void> => {
-    const userId = parseInt(req.params.id);
+    const userId = parseInt(req.params.userId);
     const bookId = parseInt(req.params.bookId);
-    const rating = req.body.score;
+    const score = req.body.score;
 
     try {
         const borrowRecord = await BorrowedBook.findOne({
@@ -47,7 +47,7 @@ const returnBook = async (req: Request, res: Response): Promise<void> => {
         }
 
         borrowRecord.returnedAt = new Date();
-        borrowRecord.rating = rating;
+        borrowRecord.rating = score;
         await borrowRecord.save();
 
         const allRatings = await BorrowedBook.findAll({
