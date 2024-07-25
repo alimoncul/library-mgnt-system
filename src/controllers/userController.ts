@@ -3,6 +3,11 @@ import { User, Book, BorrowedBook } from '../models';
 import { UserAttributes, UserInstance } from '../models/User';
 import { BookDetails } from '../models/Book';
 
+/**
+ * Retrieves all users from the database and sorts them by name in ascending order.
+ * @param req - The request object from Express, not used in this function.
+ * @param res - The response object from Express used to return the users or an error message.
+ */
 const getAllUsers = async (req: Request, res: Response): Promise<void> => {
     try {
         const users = await User.findAll({
@@ -16,6 +21,12 @@ const getAllUsers = async (req: Request, res: Response): Promise<void> => {
     }
 };
 
+/**
+ * Fetches a single user by ID, including details about their borrowed books, categorized into 'past' and 'present'.
+ * @param req - The request object from Express, containing the user ID as a URL parameter.
+ * @param res - The response object from Express used to return the user's details or an error message.
+ * @returns A JSON object with the user's details including borrowed books, or sends a 404 if the user is not found.
+ */
 const getUserById = async (req: Request, res: Response): Promise<void> => {
     try {
         const user = await User.findByPk<UserAttributes & UserInstance>(req.params.id, {
@@ -68,6 +79,12 @@ const getUserById = async (req: Request, res: Response): Promise<void> => {
     }
 };
 
+/**
+ * Creates a new user in the database using the data provided in the request body.
+ * @param req - The request object from Express, containing the new user's data in the body.
+ * @param res - The response object from Express used to send the newly created user's details or an error message.
+ * @returns A JSON object of the newly created user or a 500 error if an issue occurs during creation.
+ */
 const createUser = async (req: Request, res: Response): Promise<void> => {
     try {
         const newUser = await User.create(req.body);

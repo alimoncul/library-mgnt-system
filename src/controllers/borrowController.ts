@@ -2,6 +2,14 @@ import { Request, Response } from 'express';
 import { User, Book, BorrowedBook } from '../models';
 import { Op } from 'sequelize';
 
+/**
+ * Borrows a book for a user if the book is not already borrowed.
+ * Ensures both user and book exist and that the book isn't currently borrowed by the same user.
+ * 
+ * @param req - The HTTP request object containing the user and book IDs as URL parameters.
+ * @param res - The HTTP response object used for sending back HTTP status codes and messages.
+ * @returns Sends a 204 status code on successful borrowing, 404 if user or book not found, or 400 if the book is already borrowed.
+ */
 const borrowBook = async (req: Request, res: Response): Promise<void> => {
     const userId = parseInt(req.params.userId);
     const bookId = parseInt(req.params.bookId);
@@ -31,6 +39,14 @@ const borrowBook = async (req: Request, res: Response): Promise<void> => {
     }
 };
 
+/**
+ * Returns a book that a user has borrowed. It updates the borrow record to indicate the book has been returned,
+ * records the user's rating, and recalculates the book's average rating.
+ * 
+ * @param req - The HTTP request object containing the user and book IDs as URL parameters, and the user's rating in the body.
+ * @param res - The HTTP response object used for sending back HTTP status codes and messages.
+ * @returns Sends a 204 status code on successful return, 404 if no active borrow record is found, or 500 if an error occurs.
+ */
 const returnBook = async (req: Request, res: Response): Promise<void> => {
     const userId = parseInt(req.params.userId);
     const bookId = parseInt(req.params.bookId);
