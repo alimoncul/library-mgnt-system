@@ -60,8 +60,8 @@ The database schema includes three main tables: `Users`, `Books`, and `BorrowedB
 1. **Clone the repository:**
 
    ```bash
-   git clone https://your-repository-url
-   cd library-management-system
+   git clone https://github.com/alimoncul/library-mgnt-system.git
+   cd library-mgnt-system
    ```
 
 2. **Install dependencies:**
@@ -86,3 +86,7 @@ The database schema includes three main tables: `Users`, `Books`, and `BorrowedB
    ```bash
    npm run dev
    ```
+
+### Test results
+
+![Test results](results.png?raw=true "Test results")
