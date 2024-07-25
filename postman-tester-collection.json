@@ -1,0 +1,1349 @@
+{
+	"info": {
+		"_postman_id": "80acab6e-3195-4482-8d65-e7925418688e",
+		"name": "Library Case API Collection - Alim Öncül",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8751227"
+	},
+	"item": [
+		{
+			"name": "Test Run",
+			"item": [
+				{
+					"name": "[TESTING] Wipe Database",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/reset",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1 - Create User Eray Aslan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if name is correct and id is 1\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"Eray Aslan\");\r",
+									"    pm.expect(jsonData.id).to.eql(1);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Eray Aslan\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Create User Enes Faruk Meniz",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if name is correct and id is 2\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"Enes Faruk Meniz\");\r",
+									"    pm.expect(jsonData.id).to.eql(2);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Enes Faruk Meniz\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Create User Sefa Eren Şahin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if name is correct and id is 3\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"Sefa Eren Şahin\");\r",
+									"    pm.expect(jsonData.id).to.eql(3);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Sefa Eren Şahin\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Create User Kadir Mutlu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if name is correct and id is 4\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"Kadir Mutlu\");\r",
+									"    pm.expect(jsonData.id).to.eql(4);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Kadir Mutlu\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5 - Get Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if users endpoint returns 4 objects\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.length(4);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if 1st object is Enes Faruk Meniz\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].id).to.eq(2);\r",
+									"    pm.expect(jsonData[0].name).to.eq(\"Enes Faruk Meniz\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if 2nd object is Eray Aslan\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[1].id).to.eq(1);\r",
+									"    pm.expect(jsonData[1].name).to.eq(\"Eray Aslan\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if 3rd object is Kadir Mutlu\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[2].id).to.eq(4);\r",
+									"    pm.expect(jsonData[2].name).to.eq(\"Kadir Mutlu\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if 4th object is Sefa Eren Şahin\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[3].id).to.eq(3);\r",
+									"    pm.expect(jsonData[3].name).to.eq(\"Sefa Eren Şahin\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6 - Get User Enes Faruk Meniz",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if user endpoint returns correct structure\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eq(2);\r",
+									"    pm.expect(jsonData.name).to.eq(\"Enes Faruk Meniz\");\r",
+									"    pm.expect(jsonData.books.past).to.length(0);\r",
+									"    pm.expect(jsonData.books.present).to.length(0);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7 - Create Book The Hitchhiker's Guide to the Galaxy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if create book endpoint returns code 201\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"The Hitchhiker's Guide to the Galaxy\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/books",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8 - Create Book I, Robot",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if create book endpoint returns code 201\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"I, Robot\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/books",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "9 - Create Book Dune",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if create book endpoint returns code 201\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Dune\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/books",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "10 - Create Book 1984",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if create book endpoint returns code 201\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"1984\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/books",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "11 - Create Book Brave New World",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if create book endpoint returns code 201\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Brave New World\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/books",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "12 - Get Books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Check if books endpoint returns 5 objects\", function () {\r",
+									"    pm.expect(jsonData).to.length(5);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if 1st object is 1984\", function () {\r",
+									"    pm.expect(jsonData[0].id).to.eq(4);\r",
+									"    pm.expect(jsonData[0].name).to.eq(\"1984\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if 2nd object is Brave New World\", function () {\r",
+									"    pm.expect(jsonData[1].id).to.eq(5);\r",
+									"    pm.expect(jsonData[1].name).to.eq(\"Brave New World\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if 3rd object is Dune\", function () {\r",
+									"    pm.expect(jsonData[2].id).to.eq(3);\r",
+									"    pm.expect(jsonData[2].name).to.eq(\"Dune\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if 4th object is I, Robot\", function () {\r",
+									"    pm.expect(jsonData[3].id).to.eq(2);\r",
+									"    pm.expect(jsonData[3].name).to.eq(\"I, Robot\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if 5th object is The Hitchhiker's Guide to the Galaxy\", function () {\r",
+									"    pm.expect(jsonData[4].id).to.eq(1);\r",
+									"    pm.expect(jsonData[4].name).to.eq(\"The Hitchhiker's Guide to the Galaxy\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/books",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13 - Get Book Dune",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if book endpoint returns correct structure\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"Dune\");\r",
+									"    pm.expect(jsonData.id).to.eql(3);\r",
+									"    pm.expect(jsonData.score).to.eql(-1);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/books/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "14 - Borrow Book userId:2 - I, Robot",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if borrow book endpoint returns code 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(204);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/2/borrow/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"2",
+								"borrow",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "15 - Borrow Book userId:2 -  The Hitchhiker's Guide to the Galaxy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if borrow book endpoint returns code 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(204);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/2/borrow/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"2",
+								"borrow",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "16 - Borrow Book userId:2 -  Brave New World",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if borrow book endpoint returns code 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(204);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/2/borrow/5",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"2",
+								"borrow",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "17 - Get User Enes Faruk Meniz",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Check if users endpoint returns correct structure\", function () {\r",
+									"    pm.expect(jsonData.id).to.eq(2);\r",
+									"    pm.expect(jsonData.name).to.eq(\"Enes Faruk Meniz\");\r",
+									"    pm.expect(jsonData.books.past).to.length(0);\r",
+									"    pm.expect(jsonData.books.present).to.length(3);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if 1st present book is I, Robot\", function () {\r",
+									"    pm.expect(jsonData.books.present[0].name).to.eq(\"I, Robot\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if 2nd present book is The Hitchhiker's Guide to the Galaxy\", function () {\r",
+									"    pm.expect(jsonData.books.present[1].name).to.eq(\"The Hitchhiker's Guide to the Galaxy\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if 3rd present book is Brave New World\", function () {\r",
+									"    pm.expect(jsonData.books.present[2].name).to.eq(\"Brave New World\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "18 - Return Book userId:2 - I, Robot",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if return book endpoint returns code 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(204);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"score\": 5\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/users/2/return/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"2",
+								"return",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "19 - Return Book userId:2 - The Hitchhiker's Guide to the Galaxy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if return book endpoint returns code 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(204);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"score\": 10\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/users/2/return/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"2",
+								"return",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "20 - Get User Enes Faruk Meniz",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Check if users endpoint returns correct structure\", function () {\r",
+									"    pm.expect(jsonData.id).to.eq(2);\r",
+									"    pm.expect(jsonData.name).to.eq(\"Enes Faruk Meniz\");\r",
+									"    pm.expect(jsonData.books.past).to.length(2);\r",
+									"    pm.expect(jsonData.books.present).to.length(1);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if 1st past book is I, Robot and score is correct\", function () {\r",
+									"    pm.expect(jsonData.books.past[0].name).to.eq(\"I, Robot\");\r",
+									"    pm.expect(jsonData.books.past[0].userScore).to.eq(5);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if 2nd past book is The Hitchhiker's Guide to the Galaxy and score is correct\", function () {\r",
+									"    pm.expect(jsonData.books.past[1].name).to.eq(\"The Hitchhiker's Guide to the Galaxy\");\r",
+									"    pm.expect(jsonData.books.past[1].userScore).to.eq(10);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if only present book is Brave New World\", function () {\r",
+									"    pm.expect(jsonData.books.present[0].name).to.eq(\"Brave New World\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "21 - Borrow Book userId:1 -  I, Robot",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if borrow book endpoint returns code 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(204);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/1/borrow/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"1",
+								"borrow",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "22 - Return Book userId:1 - I, Robot",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if return book endpoint returns code 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(204);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"score\": 8.5\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/users/1/return/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"1",
+								"return",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "23 - Get Book I, Robot",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if book endpoint returns correct structure\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"I, Robot\");\r",
+									"    pm.expect(jsonData.id).to.eql(2);\r",
+									"    pm.expect(jsonData.score).to.eql((5 + 8.5) / 2);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/books/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "24 - Create User Validation Test - wrong parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Check if validation is correct\", function () {    \r",
+									"    pm.expect(jsonData.message).to.length(1);\r",
+									"    pm.expect(jsonData.message[0]).to.eql(\"\\\"name\\\" is required\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if status code and status is correct\", function () {    \r",
+									"    pm.expect(pm.response.code).to.eq(400);\r",
+									"    pm.expect(pm.response.status).to.eq(\"Bad Request\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"Kadir Mutlu\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "25 - Create User Validation Test - short name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Check if validation is correct\", function () {    \r",
+									"    pm.expect(jsonData.message).to.length(1);\r",
+									"    pm.expect(jsonData.message[0]).to.eql(\"\\\"name\\\" length must be at least 3 characters long\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if status code and status is correct\", function () {    \r",
+									"    pm.expect(pm.response.code).to.eq(400);\r",
+									"    pm.expect(pm.response.status).to.eq(\"Bad Request\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"a\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "26 - Create User Validation Test - extra parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Check if validation is correct\", function () {    \r",
+									"    pm.expect(jsonData.message).to.length(1);\r",
+									"    pm.expect(jsonData.message[0]).to.eql(\"\\\"id\\\" is not allowed\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if status code and status is correct\", function () {    \r",
+									"    pm.expect(pm.response.code).to.eq(400);\r",
+									"    pm.expect(pm.response.status).to.eq(\"Bad Request\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"alim\",\n    \"id\": 2\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "27 - Borrow Book Validation Test - already borrowed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if validation is correct\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/2/borrow/5",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"2",
+								"borrow",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "28 - Borrow Book Validation Test - no book with id 12",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if validation is correct\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/2/borrow/12",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"2",
+								"borrow",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "29 - Borrow Book Validation Test - no user with id 22",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if validation is correct\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/22/borrow/12",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"22",
+								"borrow",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "30 - Return Book Validation Test - Not borrowed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if validation is correct\", function () {\r",
+									"    pm.expect(pm.response.code).to.eq(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"score\": 8.5\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/users/1/return/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"1",
+								"return",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
