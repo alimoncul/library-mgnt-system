@@ -1,10 +1,16 @@
-// src/controllers/bookController.ts
 import { Request, Response } from 'express';
 import { Book } from '../models';
 
 const getAllBooks = async (req: Request, res: Response): Promise<void> => {
     try {
-        const books = await Book.findAll();
+        const books = await Book.findAll({
+            order: [
+                ['name', 'ASC']
+            ],
+            attributes: {
+                exclude: ['score']  // Excludes these fields from the results
+            }
+        });
         res.json(books);
     } catch (error) {
         res.status(500).send(error.message);
@@ -26,8 +32,8 @@ const getBookById = async (req: Request, res: Response): Promise<void> => {
 
 const createBook = async (req: Request, res: Response): Promise<void> => {
     try {
-        const newBook = await Book.create(req.body);
-        res.status(201).json(newBook);
+        await Book.create(req.body);
+        res.status(201).send();
     } catch (error) {
         res.status(500).send(error.message);
     }

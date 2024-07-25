@@ -1,9 +1,9 @@
-// src/index.ts
 import express from 'express';
 import bodyParser from 'body-parser';
 import userRoutes from './routes/userRoutes';
 import bookRoutes from './routes/bookRoutes';
 import borrowRoutes from './routes/borrowRoutes';
+import resetRoutes from './routes/resetRoutes';
 import { sequelize } from './models';
 
 const app = express();
@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 app.use('/', userRoutes);
 app.use('/', bookRoutes);
 app.use('/', borrowRoutes);
+app.use('/', resetRoutes); // implemented for testing purposes
 
 const initializeDatabase = async () => {
     try {

@@ -1,9 +1,15 @@
 import { Request, Response } from 'express';
-import { User, Book } from '../models';
+import { User, Book, BorrowedBook } from '../models';
+import { UserAttributes, UserInstance } from '../models/User';
+import { BookDetails } from '../models/Book';
 
 const getAllUsers = async (req: Request, res: Response): Promise<void> => {
     try {
-        const users = await User.findAll();
+        const users = await User.findAll({
+            order: [
+                ['name', 'ASC']
+            ]
+        });
         res.json(users);
     } catch (error) {
         res.status(500).send(error.message);
@@ -12,21 +18,48 @@ const getAllUsers = async (req: Request, res: Response): Promise<void> => {
 
 const getUserById = async (req: Request, res: Response): Promise<void> => {
     try {
-        const user = await User.findByPk(req.params.id, {
-            attributes: ['id', 'name'], // User attributes you want to fetch
+        const user = await User.findByPk<UserAttributes & UserInstance>(req.params.id, {
+            attributes: ['id', 'name'],
             include: [{
                 model: Book,
                 as: 'BorrowedBooks',
-                attributes: ['id', 'name'], // Attributes of the book you want to include
+                attributes: ['name'],
                 through: {
-                    attributes: ['borrowedAt', 'returnedAt', 'rating'], // Join table attributes
-                    where: {} // Optional: conditions on the join table
+                    attributes: ['borrowedAt', 'returnedAt', 'rating']
                 },
-                required: false // This ensures even users without borrowed books are returned
+                required: false
             }]
         });
+
         if (user) {
-            res.json(user);
+            // Initialize the structured data object
+            const structuredData = {
+                id: user.id,
+                name: user.name,
+                books: {
+                    past: [] as BookDetails[],
+                    present: [] as BookDetails[]
+                }
+            };
+
+            // Organize books into past and present
+            user.BorrowedBooks?.forEach(book => {
+                const bookDetails: BookDetails = {
+                    name: book.name
+                };
+
+                if (book.BorrowedBook?.returnedAt) {
+                    // If the book is returned, include the user's rating
+                    bookDetails['userScore'] = book?.BorrowedBook?.rating || 0;
+                    structuredData.books.past.push(bookDetails);
+                } else {
+                    // If the book is not yet returned, it's present
+                    structuredData.books.present.push(bookDetails);
+                }
+            });
+
+            res.json(structuredData);
+
         } else {
             res.status(404).send('User not found');
         }

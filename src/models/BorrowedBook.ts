@@ -50,6 +50,7 @@ export default (sequelize: Sequelize) => {
     }, {
         sequelize,
         modelName: 'BorrowedBook',
+        timestamps: false
     });
 
     return BorrowedBook;

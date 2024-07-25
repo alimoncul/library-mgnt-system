@@ -25,7 +25,7 @@ const borrowBook = async (req: Request, res: Response): Promise<void> => {
         }
 
         await BorrowedBook.create({ userId, bookId, borrowedAt: new Date() });
-        res.status(200).send('Book borrowed successfully');
+        res.status(204).send();
     } catch (error) {
         res.status(500).send(error.message);
     }
@@ -55,16 +55,16 @@ const returnBook = async (req: Request, res: Response): Promise<void> => {
             attributes: ['rating'],
         });
 
-        const averageRating =
+        let averageScore =
             allRatings.reduce((sum, record) => sum + (record.rating || 0), 0) / allRatings.length;
 
         const book = await Book.findByPk(bookId);
         if (book) {
-            book.averageRating = averageRating;
+            book.score = averageScore;
             await book.save();
         }
 
-        res.status(200).send('Book returned and rated successfully');
+        res.status(204).send();
     } catch (error) {
         res.status(500).send(error.message);
     }

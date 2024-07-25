@@ -1,20 +1,23 @@
 import { DataTypes, Model, Optional, Sequelize } from 'sequelize';
 
-interface BookAttributes {
+export interface BookAttributes {
     id: number;
     name: string;
-    averageRating: number;
+    score: number;
 }
 
-interface BookCreationAttributes extends Optional<BookAttributes, 'id' | 'averageRating'> { }
+export type BookDetails = {
+    name: string,
+    userScore?: number
+}
+
+interface BookCreationAttributes extends Optional<BookAttributes, 'id' | 'score'> { }
 
 export default (sequelize: Sequelize) => {
     class Book extends Model<BookAttributes, BookCreationAttributes> implements BookAttributes {
         public id!: number;
         public name!: string;
-        public averageRating!: number;
-        public readonly createdAt!: Date;
-        public readonly updatedAt!: Date;
+        public score!: number;
     }
 
     Book.init({
@@ -27,13 +30,14 @@ export default (sequelize: Sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        averageRating: {
+        score: {
             type: DataTypes.FLOAT,
-            defaultValue: 0,
+            defaultValue: -1,
         },
     }, {
         sequelize,
         modelName: 'Book',
+        timestamps: false
     });
 
     return Book;
