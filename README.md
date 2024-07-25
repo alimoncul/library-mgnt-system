@@ -14,7 +14,7 @@ This Library Management System is designed to manage a library's book inventory 
 
 ### Backend
 
-The backend is built on `Node.js` with `Express`, providing a RESTful API. Data persistence is handled by `Sequelize ORM` to interact with a relational database.
+The backend is built on `Node.js` with `Express`, providing a RESTful API. Data persistence is handled by `Sequelize ORM` to interact with a relational database. joi is used for request validation. 
 
 #### Models
 
